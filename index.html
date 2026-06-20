@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UrbanWash — Laundry Pickup &amp; Delivery in Pokhara</title>
+<meta name="description" content="UrbanWash picks up, washes and delivers your laundry anywhere in Pokhara. Book in under a minute, pay on delivery.">
+
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <img src="assets/logo-240.png" alt="UrbanWash logo">
+      <span class="brand-name">Urban<span>Wash</span></span>
+    </a>
+    <a class="header-cta" href="#book">Book a pickup</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Laundry, picked up &amp; delivered · Pokhara</p>
+          <h1>Your laundry,<br><em>washed by the lake,</em><br>back at your door.</h1>
+          <p class="hero-sub">Tell us where you are, we collect your clothes, wash and fold them with care, and bring them back — usually within 24–48 hours.</p>
+          <div class="hero-actions">
+            <a href="#book" class="btn btn-primary">Book a pickup →</a>
+            <a href="#pricing" class="btn btn-ghost">See pricing</a>
+          </div>
+          <div class="hero-stats">
+            <div>
+              <div class="stat-num">24–48h</div>
+              <div class="stat-label">turnaround</div>
+            </div>
+            <div>
+              <div class="stat-num">Rs 60+</div>
+              <div class="stat-label">starting price</div>
+            </div>
+            <div>
+              <div class="stat-num">Pokhara</div>
+              <div class="stat-label">wide pickup</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/logo-240.png" alt="UrbanWash — mountains, river and a basket of clean laundry">
+        </div>
+      </div>
+    </div>
+    <!-- Signature ridge-line, pass 1: the mountain itself -->
+    <svg class="ridge" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,90 L0,60 L120,20 L220,55 L340,10 L460,50 L600,5 L760,48 L900,15 L1040,52 L1180,22 L1320,50 L1440,30 L1440,90 Z" fill="#F2F8F7"/>
+      <path d="M0,60 L120,20 L220,55 L340,10 L460,50 L600,5 L760,48 L900,15 L1040,52 L1180,22 L1320,50 L1440,30" fill="none" stroke="#1789A8" stroke-width="2" opacity="0.35"/>
+    </svg>
+  </section>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+        <h2>From doorstep to done in three steps</h2>
+        <p>No app to download. Fill one form, we handle the rest.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-mark">1</div>
+          <h3>Book</h3>
+          <p>Drop your pin, pick a slot, tell us what's coming.</p>
+        </div>
+        <div class="step">
+          <div class="step-mark">2</div>
+          <h3>We collect</h3>
+          <p>A runner picks up at your location, at the time you chose.</p>
+        </div>
+        <div class="step">
+          <div class="step-mark">3</div>
+          <h3>We wash</h3>
+          <p>Sorted, washed, dried and folded by hand — or dry-cleaned where needed.</p>
+        </div>
+        <div class="step">
+          <div class="step-mark">4</div>
+          <h3>We return</h3>
+          <p>Delivered back to your door, usually within 24–48 hours.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Ridge-line, pass 2: foothills, flatter -->
+    <svg class="ridge" viewBox="0 0 1440 50" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,50 L0,35 L200,18 L420,32 L680,12 L920,30 L1180,16 L1440,28 L1440,50 Z" fill="#E8F4F1"/>
+    </svg>
+  </section>
+
+  <!-- ============ PRICING ============ -->
+  <section class="section bg-mist" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Pricing</p>
+        <h2>Simple, per-piece pricing</h2>
+        <p>Individual rates for households, bulk rates for hotels, restaurants and guesthouses. Final price confirmed at pickup based on actual items and fabric care needed.</p>
+      </div>
+
+      <div role="tablist" class="tabs" aria-label="Pricing audience">
+        <button class="tab-btn" role="tab" aria-selected="true" aria-controls="panel-b2c" id="tab-b2c">For individuals</button>
+        <button class="tab-btn b2b" role="tab" aria-selected="false" aria-controls="panel-b2b" id="tab-b2b">For businesses</button>
+      </div>
+
+      <div id="panel-b2c" role="tabpanel" aria-labelledby="tab-b2c">
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr><th>Category</th><th>Item</th><th>Price (NPR)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Formal wear</td><td>Suit (coat + pant)</td><td class="price">350–600</td></tr>
+              <tr><td>Formal wear</td><td>Blazer / coat (single)</td><td class="price">250–400</td></tr>
+              <tr><td>Traditional wear</td><td>Saree (normal)</td><td class="price">200–350</td></tr>
+              <tr><td>Traditional wear</td><td>Saree (heavy work / silk)</td><td class="price">500–800+</td></tr>
+              <tr><td>Traditional wear</td><td>Lehenga</td><td class="price">700–1200+</td></tr>
+              <tr><td>Daily wear</td><td>Shirt / T-shirt / pant</td><td class="price">60–120</td></tr>
+              <tr><td>Daily wear</td><td>Sweater / jacket (light)</td><td class="price">150–300</td></tr>
+              <tr><td>Footwear</td><td>Sneakers / shoes (deep clean)</td><td class="price">200–350</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="price-note">Per-piece price. Heavily soiled, embellished or delicate items may sit at the higher end of the range.</p>
+      </div>
+
+      <div id="panel-b2b" role="tabpanel" aria-labelledby="tab-b2b" hidden>
+        <div class="price-table-wrap">
+          <table class="price-table">
+            <thead>
+              <tr><th>Item category</th><th>Service</th><th>Price (NPR)</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Bed sheet (single / double)</td><td>Wash, dry &amp; fold</td><td class="price">30–40 / pc</td></tr>
+              <tr><td>Pillow cover</td><td>Wash, dry &amp; fold</td><td class="price">15–25 / pc</td></tr>
+              <tr><td>Towel (hand / bath)</td><td>Wash, dry &amp; fold</td><td class="price">30–40 / pc</td></tr>
+              <tr><td>Duvet cover</td><td>Wash, dry &amp; fold</td><td class="price">35–50 / pc</td></tr>
+              <tr><td>Chair / table cloth (small / large)</td><td>Wash, dry &amp; fold</td><td class="price">60–200 / pc</td></tr>
+              <tr><td>Chef / staff uniforms</td><td>Wash, dry &amp; fold</td><td class="price">80–150 / set</td></tr>
+              <tr><td>Duvet / comforter (heavy)</td><td>Dry clean</td><td class="price">300–500 / pc</td></tr>
+              <tr><td>Curtain</td><td>Wash, dry &amp; fold</td><td class="price">100–200 / pc</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="price-note">Volume rates available for hotels, guesthouses and restaurants on a standing contract. Ask us for a custom quote.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ BOOKING ============ -->
+  <section class="section" id="book">
+    <div class="wrap">
+      <div class="section-head" style="margin-left:auto;margin-right:auto;text-align:center;">
+        <p class="eyebrow">Book a pickup</p>
+        <h2>Tell us where to come</h2>
+        <p>Fill this in, then send it to us on WhatsApp or email — whichever's easier. No account needed.</p>
+      </div>
+
+      <form class="booking-panel" id="booking-form">
+
+        <div class="client-type-toggle" role="radiogroup" aria-label="Client type">
+          <input type="radio" name="clientType" id="ct-individual" value="Individual" checked>
+          <label for="ct-individual">Individual</label>
+          <input type="radio" name="clientType" id="ct-business" value="Business">
+          <label for="ct-business">Business / bulk</label>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-row">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" placeholder="e.g. Sita Gurung" required>
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="98XXXXXXXX" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label for="address">Address / landmark</label>
+          <input type="text" id="address" name="address" placeholder="e.g. Lakeside-6, near Hotel Barahi" required>
+        </div>
+
+        <div class="form-row">
+          <label for="items">What needs washing? (rough list)</label>
+          <textarea id="items" name="items" rows="3" placeholder="e.g. 2 bedsheets, 1 duvet cover, 5 shirts"></textarea>
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-row">
+            <label for="pickup-date">Preferred pickup date</label>
+            <input type="date" id="pickup-date" name="pickupDate">
+          </div>
+          <div class="form-row">
+            <label for="pickup-time">Preferred time</label>
+            <select id="pickup-time" name="pickupTime">
+              <option value="Morning (8–11am)">Morning (8–11am)</option>
+              <option value="Midday (11am–2pm)">Midday (11am–2pm)</option>
+              <option value="Afternoon (2–5pm)">Afternoon (2–5pm)</option>
+              <option value="Evening (5–7pm)">Evening (5–7pm)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <label>Pin your location on the map</label>
+          <div class="map-block">
+            <div id="map"></div>
+            <div class="map-actions">
+              <button type="button" class="locate-btn" id="locate-btn">📍 Use my current location</button>
+              <span class="coords-readout" id="coords-readout">No location set</span>
+            </div>
+          </div>
+          <p class="price-note">Drag the pin to fine-tune — this helps our runner find you faster. This is optional if your address above is clear enough.</p>
+        </div>
+
+        <div class="submit-row">
+          <button type="button" class="btn btn-whatsapp" id="send-whatsapp">Send via WhatsApp</button>
+          <button type="button" class="btn btn-email" id="send-email">Send via Email</button>
+        </div>
+
+        <p class="form-hint">This opens WhatsApp or your email app with your order pre-filled — nothing is sent automatically, and no payment is needed to book.</p>
+        <div class="form-status" id="form-status" hidden></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- Ridge-line, pass 3: the lake, still -->
+<svg class="ridge" viewBox="0 0 1440 30" preserveAspectRatio="none" aria-hidden="true" style="display:block;">
+  <path d="M0,30 L1440,30 L1440,18 L0,18 Z" fill="#0B3D5C"/>
+</svg>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/logo-240.png" alt="UrbanWash logo">
+          <span>UrbanWash</span>
+        </div>
+        <p>Laundry pickup &amp; delivery, run from Pokhara, for Pokhara. Sorted, washed and folded with care — every time.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="tel:+97700000000">+977 00-000000</a>
+        <a href="mailto:hello@urbanwash.example">hello@urbanwash.example</a>
+        <a href="#book">Book a pickup</a>
+      </div>
+      <div class="footer-col">
+        <h4>Service area</h4>
+        <a href="#pricing">Lakeside</a>
+        <a href="#pricing">Mahendrapool</a>
+        <a href="#pricing">New Road</a>
+        <a href="#pricing">Chipledhunga</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> UrbanWash, Pokhara</span>
+      <span>Built with care by the lake</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
