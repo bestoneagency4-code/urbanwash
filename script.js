@@ -134,7 +134,7 @@ function validateForm() {
 }
 
 const WHATSAPP_NUMBER = '9815174689'; // TODO: replace with UrbanWash's real WhatsApp number, country code, no + or leading 0
-const SUPPORT_EMAIL = 'bestoneagency4@gmail.com'; // TODO: replace with UrbanWash's real email
+const SUPPORT_EMAIL = 'urbanwashpokhara@gmail.com'; // TODO: replace with UrbanWash's real email
 
 document.getElementById('send-whatsapp').addEventListener('click', () => {
   if (!validateForm()) return;
